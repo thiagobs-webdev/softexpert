@@ -9,7 +9,7 @@ define("SITE", [
     "desc" => "App test do processo seletivo SoftExpert para Controle de Vendas",
     "domain" => "softexpert.thiagobs.me/",
     "locale" => "pt_BR",
-    "root" => "http://localhost/softexpert"
+    "root" => "http://localhost/softexpert" // sem a barra no final
 ]);
 
 
