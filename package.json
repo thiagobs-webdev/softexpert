@@ -1,0 +1,22 @@
+{
+  "name": "softexpert",
+  "version": "1.0.0",
+  "description": "App test do processo seletivo SoftExpert para gerenciamento de Produtos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagobs-webdev/softexpert.git"
+  },
+  "author": "Thiago Bomfim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagobs-webdev/softexpert/issues"
+  },
+  "homepage": "https://github.com/thiagobs-webdev/softexpert#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}

@@ -1,0 +1,103 @@
+## Instalação do Projeto.
+
+
+\# Banco de Dados
+--------
+
+1. Instalação do [postgreSQL](https://www.postgresql.org/download/):
+    Em seu servidor, instale o postgreSQL seguindo as instruções do [site](https://www.postgresql.org/download/):
+
+2. Criação do usuário:
+    * Faça login com usuário **postgres**
+
+        > sudo su - postgres
+
+    * Crie o usuário:
+
+        > CREATE USER thiagobs WITH LOGIN PASSWORD 'Sexper$27(';
+
+        > CREATE DATABASE soft_expert WITH OWNER thiagobs;
+
+    * Sair do usuário **postgres**
+
+        > \q
+
+    * Você pode testar o usuário criado e sair \q:
+
+        > psql -U thiagobs -d soft_expert
+
+    **Tudo certo até aqui? \o/**
+
+
+3. Importação da **arquivo sql**:
+
+    * Há um arquivo sql dentro do projeto responsável pela criação das tabelas:
+    * Este arquivo está no diretório: db/soft_expert.sql
+    * A importação é possível com o comando abaixo, observando o path (diretório) do arquivo soft_expert.sql em seu servidor e o    local do servidor (que pode ser localhost):
+
+        > psql -h localhost -U thiagobs -W -d soft_expert -f /opt/lamp/htdocs/sofexpert/db/soft_expert.sql
+
+    **Tudo certo até aqui? \o/ :)**
+
+
+\# Deploy do projeto
+--------
+### > Clonando o Repositório no Servidor ou realizando o upload:
+
+1. Em seu servidor, abra o terminal e navegue até o local onde são executadas as aplicações:
+
+    * Clone este repositório. Pule esta etapa caso faça deploy por outro meio:
+  
+        git clone https://github.com/thiagobs-webdev/softexpert.git
+  
+
+2. Entre no repositório:
+  
+  cd softexpert
+  
+
+3. Instale as dependências PHP via [Composer](https://getcomposer.org/download/):
+
+    * Se seu servidor já contém o [Composer](https://getcomposer.org/download/)
+ 
+        composer install
+ 
+
+    * Caso não possua o [Composer](https://getcomposer.org/download/) instalado, instale localmente:
+
+        > php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+        > php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+        > php composer-setup.php
+
+        > php -r "unlink('composer-setup.php');"
+
+    * Com isso, obtemos o arquivo **composer.phar** responsável pela instalação das dependências.
+    * Então executemos:
+
+        > php composer.phar install
+
+    * Dependências instaladas.
+
+    **Tudo certo até aqui? \o/ :) :P**
+
+  
+4. Os dados de acesso ao **Banco de Dados** estão no arquivo **Config** no diretório _source/Config_:
+  
+  "dbname" => "soft_expert"
+  "username" => "thiagobs",
+  "passwd" => "Sexper$27(",
+ 
+5. Configure a **URL** do site no arquivo **Config** no diretório _source/Config_:
+
+* Aqui ficou assim:
+  
+  "root" => "https://softexpert.thiagobs.me/"
+  
+
+6. Pronto, seu projeto já está funcional.
+
+7. Qualquer dúvida, entre em contato no e-mail: thiagobs.webdev@gmail.com
+
+8. **Obrigado!  \o/ :) :P :D**
